@@ -95,6 +95,8 @@ Sebagai pengunjung, saya ingin memasang katalog di layar HP seperti aplikasi. Ik
 Kriteria selesai:
 
 - Manifest aplikasi dan ikon tersedia.
+- Tautan manifest mengarah ke manifest web app yang valid.
+- Pengunjung melihat tombol di header untuk memasang aplikasi atau petunjuk pemasangan sesuai browser.
 - Service worker terdaftar agar halaman katalog yang pernah dibuka dapat digunakan kembali saat offline.
 - Halaman admin tidak disimpan dalam cache PWA.
 

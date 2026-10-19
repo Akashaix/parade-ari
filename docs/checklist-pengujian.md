@@ -27,6 +27,8 @@ Uji di link Vercel, bukan hanya di laptop. Coba juga di HP.
 - [ ] Ubah produk: perubahan muncul di katalog.
 - [ ] Hapus produk: produk hilang dari katalog setelah konfirmasi.
 - [ ] PWA: situs dapat ditambahkan ke layar utama dari menu browser Android dan iOS.
+- [ ] PWA: tombol "Pasang app" terlihat di header halaman.
+- [ ] PWA: klik tombol menampilkan prompt instalasi jika browser mendukungnya atau petunjuk menu pemasangan.
 - [ ] PWA: setelah kunjungan pertama selesai, homepage tersedia saat offline tanpa perlu dimuat ulang sebelumnya.
 - [ ] PWA: halaman publik yang pernah dibuka tetap dapat ditampilkan saat offline.
 - [ ] PWA: halaman admin tidak disajikan dari cache saat offline.

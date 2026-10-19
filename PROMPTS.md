@@ -69,3 +69,11 @@ Tambahkan bagian baru untuk setiap error yang kamu perbaiki atau fitur bonus yan
 **Hasil:** Manifest, ikon 192/512, dan service worker sudah valid di localhost. Audit menemukan halaman awal baru tercache setelah navigasi yang ditangani service worker, dan belum ada metadata standalone khusus iOS.
 
 **Perbaikan:** Cache homepage saat instalasi service worker (best effort), tambahkan metadata Apple Web App, dan lengkapi langkah uji instalasi Android/iOS serta kunjungan pertama offline.
+
+## Memperbaiki manifest dan akses pemasangan PWA [SENDIRI]
+
+**Prompt:** PWA belum terlihat; periksa manifest.js dan pastikan opsi memasang aplikasi tampak.
+
+**Hasil:** Proyek hanya memakai `public/manifest.json` yang ditautkan manual, tanpa rute `app/manifest.js` Next.js. Tidak ada tombol pemasangan di tampilan.
+
+**Perbaikan:** Gunakan metadata manifest dari `app/manifest.js`, sediakan tombol "Pasang app" pada header agar terlihat tanpa scroll, tombol memakai prompt browser bila tersedia dan memberi instruksi Android/iPhone jika tidak, serta sesuaikan service worker dengan URL manifest baru.

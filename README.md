@@ -39,7 +39,9 @@ Template workshop vibe coding Creative Hub App Talent (CHAT) 2026. Repo ini beri
   **Tambahkan ke Layar Utama**.
 
 PWA perlu dibuka lewat HTTPS (seperti alamat Vercel) atau `localhost` untuk
-pengembangan. Setelah katalog pernah dibuka saat online, halaman awal dapat
+pengembangan. Tombol **Pasang app** tersedia di bagian atas situs; browser
+yang mendukung prompt instalasi akan menampilkan konfirmasi, sedangkan browser
+lain menampilkan petunjuk melalui menu browser. Setelah katalog pernah dibuka saat online, halaman awal dapat
 dibuka kembali saat offline; data produk terbaru dan pemesanan WhatsApp tetap
 memerlukan koneksi internet.
 
