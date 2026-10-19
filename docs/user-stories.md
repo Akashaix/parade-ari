@@ -92,8 +92,20 @@ Sebagai pengunjung, saya ingin memilih jumlah atau varian sebelum memesan, dan p
 
 Sebagai pengunjung, saya ingin memasang katalog di layar HP seperti aplikasi. Ikon tersedia di `public/icons`.
 
+Kriteria selesai:
+
+- Manifest aplikasi dan ikon tersedia.
+- Service worker terdaftar agar halaman katalog yang pernah dibuka dapat digunakan kembali saat offline.
+- Halaman admin tidak disimpan dalam cache PWA.
+
 ### US-14 Deskripsi produk dibuat AI
 
 Sebagai admin, saya ingin membuat deskripsi produk secara otomatis dengan AI (Gemini API) dari nama dan kategori produk.
+
+Kriteria selesai:
+
+- Admin dapat meminta deskripsi dari form tambah maupun ubah produk.
+- Pemanggilan Gemini dilakukan di server dan hanya untuk admin yang sudah login.
+- `GEMINI_API_KEY` disimpan sebagai environment variable server, bukan di kode atau browser.
 
 Catatan: bonus US-08, US-09, dan US-10 hanya dihitung jika aksinya terlindungi login.

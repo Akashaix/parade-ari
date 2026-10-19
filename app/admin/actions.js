@@ -150,4 +150,88 @@ export async function ubahProduk(id, prevState, formData) {
   redirect("/admin");
 }
 
+export async function hapusProduk(id) {
+  const supabase = await buatKoneksiAdmin();
+
+  // Wajib periksa login di server sesuai Aturan Keamanan no 3
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    return { error: "Sesi login tidak valid. Silakan login terlebih dahulu." };
+  }
+
+  const { error } = await supabase.from("produk").delete().eq("id", id);
+
+  if (error) {
+    return { error: "Gagal menghapus produk: " + error.message };
+  }
+
+  redirect("/admin");
+}
+
+export async function buatDeskripsiAI(nama, kategori) {
+  const supabase = await buatKoneksiAdmin();
+
+  // Wajib periksa login di server
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    return { error: "Sesi login tidak valid. Silakan login terlebih dahulu." };
+  }
+
+  if (!nama) {
+    return { error: "Nama produk harus diisi terlebih dahulu untuk membuat deskripsi AI." };
+  }
+
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) {
+    return {
+      error:
+        "GEMINI_API_KEY belum disetel di environment variable (.env.local). Silakan tambahkan API key Gemini Anda.",
+    };
+  }
+
+  try {
+    const prompt = `Tuliskan deskripsi produk yang menarik, ringkas, dan persuasif (2-3 kalimat) untuk katalog produk UMKM dengan informasi berikut:
+Nama Produk: ${nama}
+Kategori: ${kategori || "Umum"}
+
+Gunakan bahasa Indonesia yang ramah dan menarik pembeli. Langsung berikan teks deskripsi saja tanpa tanda kutip atau pembuka.`;
+
+    const res = await fetch(
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-goog-api-key": apiKey,
+        },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: prompt }] }],
+          generationConfig: { maxOutputTokens: 256, temperature: 0.7 },
+        }),
+      }
+    );
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      return { error: data?.error?.message || "Gagal menghubungi Gemini API." };
+    }
+
+    const hasil = data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
+    if (!hasil) {
+      return { error: "Tidak ada deskripsi yang dihasilkan oleh AI." };
+    }
+
+    return { text: hasil };
+  } catch (err) {
+    return { error: err.message || "Terjadi kesalahan saat memanggil AI." };
+  }
+}
+
 

@@ -28,6 +28,9 @@ Template workshop vibe coding Creative Hub App Talent (CHAT) 2026. Repo ini beri
 
    Buka `http://localhost:3000`.
 
+   Untuk fitur deskripsi produk AI, isi `GEMINI_API_KEY` pada `.env.local`
+   dan tambahkan key yang sama sebagai environment variable di Vercel.
+
 ## Alur kerja
 
 Kerjakan satu user story setiap kali, lalu simpan dan kirim perubahan:
