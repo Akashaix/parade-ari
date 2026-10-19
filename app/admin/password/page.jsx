@@ -15,7 +15,8 @@ export default function HalamanGantiPassword() {
       <div>
         <h1 className="text-2xl font-extrabold">Ganti password</h1>
         <p className="mt-1 text-sm text-teks-lembut">
-          Ganti password bawaan segera setelah pertama kali masuk. Minimal 8 karakter.
+          Ganti password bawaan segera setelah pertama kali masuk. Minimal 8
+          karakter.
         </p>
       </div>
       <form action={formAction} className="flex max-w-sm flex-col gap-4">
