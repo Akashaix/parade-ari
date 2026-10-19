@@ -64,3 +64,45 @@ export async function gantiPassword(prevState, formData) {
 
   return { success: "Password berhasil diganti." };
 }
+
+export async function tambahProduk(prevState, formData) {
+  const supabase = await buatKoneksiAdmin();
+
+  // Wajib periksa login di server sesuai Aturan Keamanan no 3
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    return { error: "Sesi login tidak valid. Silakan login terlebih dahulu." };
+  }
+
+  const nama = formData.get("nama")?.toString().trim();
+  const harga = parseInt(formData.get("harga")?.toString() || "0", 10);
+  const kategori = formData.get("kategori")?.toString().trim() || null;
+  const foto_url = formData.get("foto_url")?.toString().trim() || null;
+  const deskripsi = formData.get("deskripsi")?.toString().trim() || null;
+
+  if (!nama) {
+    return { error: "Nama produk wajib diisi." };
+  }
+
+  if (isNaN(harga) || harga < 0) {
+    return { error: "Harga produk harus berupa angka positif." };
+  }
+
+  const { error } = await supabase.from("produk").insert({
+    nama,
+    harga,
+    kategori,
+    foto_url,
+    deskripsi,
+  });
+
+  if (error) {
+    return { error: "Gagal menambah produk: " + error.message };
+  }
+
+  redirect("/admin");
+}
+
