@@ -7,7 +7,17 @@ const PRECACHE_URLS = [
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(PRECACHE_URLS))
+    caches.open(CACHE_NAME).then(async (cache) => {
+      await cache.addAll(PRECACHE_URLS);
+      try {
+        const homepage = await fetch(new URL("/", self.location.origin));
+        if (homepage.ok) {
+          await cache.put(homepage.url, homepage);
+        }
+      } catch (error) {
+        console.error("Gagal menyimpan halaman katalog awal ke cache PWA.", error);
+      }
+    })
   );
   self.skipWaiting();
 });

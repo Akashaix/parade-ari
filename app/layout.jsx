@@ -7,6 +7,11 @@ import { toko } from "@/lib/toko";
 export const metadata = {
   title: toko.nama,
   description: toko.tagline,
+  appleWebApp: {
+    capable: true,
+    title: toko.nama,
+    statusBarStyle: "default",
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -15,6 +20,7 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#1f6b4f" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
         <link rel="apple-touch-icon" href="/icons/icon-192.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />

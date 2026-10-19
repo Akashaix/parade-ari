@@ -61,3 +61,11 @@ Tambahkan bagian baru untuk setiap error yang kamu perbaiki atau fitur bonus yan
 **Hasil:** US-07 sampai US-12 dan tombol dasar US-14 sudah tersedia. US-13 belum mendaftarkan service worker. Endpoint AI masih memakai model Gemini 1.5 Flash. Aksi hapus belum menampilkan error yang dikembalikan server.
 
 **Perbaikan:** Menambahkan service worker PWA dengan cache halaman dan aset publik serta mengecualikan halaman admin; memindahkan pemanggilan AI ke model Gemini 2.5 Flash dengan API key pada header server; menampilkan error aksi hapus; mendokumentasikan konfigurasi key dan pengujian fitur.
+
+## Audit ulang fitur bonus dan PWA [SENDIRI]
+
+**Prompt:** Periksa ulang seluruh US-07 sampai US-14, terutama apakah PWA dapat dipasang dan halaman awal tersedia offline.
+
+**Hasil:** Manifest, ikon 192/512, dan service worker sudah valid di localhost. Audit menemukan halaman awal baru tercache setelah navigasi yang ditangani service worker, dan belum ada metadata standalone khusus iOS.
+
+**Perbaikan:** Cache homepage saat instalasi service worker (best effort), tambahkan metadata Apple Web App, dan lengkapi langkah uji instalasi Android/iOS serta kunjungan pertama offline.

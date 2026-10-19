@@ -31,6 +31,18 @@ Template workshop vibe coding Creative Hub App Talent (CHAT) 2026. Repo ini beri
    Untuk fitur deskripsi produk AI, isi `GEMINI_API_KEY` pada `.env.local`
    dan tambahkan key yang sama sebagai environment variable di Vercel.
 
+## Memasang katalog di HP
+
+- **Android:** buka alamat katalog di Chrome, pilih menu titik tiga, lalu pilih
+  **Instal aplikasi** atau **Tambahkan ke layar utama**.
+- **iPhone:** buka alamat katalog di Safari, tekan tombol **Bagikan**, lalu pilih
+  **Tambahkan ke Layar Utama**.
+
+PWA perlu dibuka lewat HTTPS (seperti alamat Vercel) atau `localhost` untuk
+pengembangan. Setelah katalog pernah dibuka saat online, halaman awal dapat
+dibuka kembali saat offline; data produk terbaru dan pemesanan WhatsApp tetap
+memerlukan koneksi internet.
+
 ## Alur kerja
 
 Kerjakan satu user story setiap kali, lalu simpan dan kirim perubahan:

@@ -26,8 +26,9 @@ Uji di link Vercel, bukan hanya di laptop. Coba juga di HP.
 - [ ] Tambah produk: produk baru muncul di katalog.
 - [ ] Ubah produk: perubahan muncul di katalog.
 - [ ] Hapus produk: produk hilang dari katalog setelah konfirmasi.
-- [ ] PWA: situs dapat ditambahkan ke layar utama dari browser HP.
-- [ ] PWA: setelah katalog dibuka sekali, halaman publik yang pernah dibuka tetap dapat ditampilkan saat offline.
+- [ ] PWA: situs dapat ditambahkan ke layar utama dari menu browser Android dan iOS.
+- [ ] PWA: setelah kunjungan pertama selesai, homepage tersedia saat offline tanpa perlu dimuat ulang sebelumnya.
+- [ ] PWA: halaman publik yang pernah dibuka tetap dapat ditampilkan saat offline.
 - [ ] PWA: halaman admin tidak disajikan dari cache saat offline.
 - [ ] Deskripsi AI: admin dapat menghasilkan deskripsi dengan `GEMINI_API_KEY` yang valid.
 - [ ] Deskripsi AI: permintaan tanpa login ditolak dan key tidak muncul pada permintaan browser.
